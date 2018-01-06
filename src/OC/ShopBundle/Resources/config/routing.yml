@@ -1,0 +1,19 @@
+## Homepage Form 1 -> choose your TICKET
+oc_shop_homepage:
+    path:     /tickets
+    defaults: { _controller: OCShopBundle:Booking:add }
+    methods: [POST,GET]
+
+
+## Form 2 -> enter your INFORMATIONS
+oc_shop_visitorform:
+    path:     /tickets/info
+    defaults: { _controller: OCShopBundle:Booking:visitorForm }
+    methods: [POST,GET]
+
+
+## Form 3 -> PAYMENT
+oc_shop_payment:
+    path:     /tickets/payment
+    defaults: { _controller: OCShopBundle:Booking:payment }
+    methods: [POST,GET]
