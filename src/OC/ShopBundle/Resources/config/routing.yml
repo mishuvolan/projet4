@@ -8,7 +8,7 @@ oc_shop_visitorform:
 
 ## Page 2 -> choose your TICKET
 oc_shop_homepage:
-    path:     /tickets
+    path:     /ticket
     defaults: { _controller: OCShopBundle:Booking:add }
     methods: [POST,GET]
 
