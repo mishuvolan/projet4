@@ -7,7 +7,7 @@ namespace OC\ShopBundle\Controller;
 
 
 use OC\ShopBundle\Entity\Ticket;
-use OC\ShopBundle\Entity\Reservation;
+use OC\ShopBundle\Entity\Booking;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,7 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 
@@ -26,11 +26,12 @@ class BookingController extends Controller
 	public function visitorFormAction(Request $request)
 	{
 
-    $reservation = new Reservation();
-    $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $reservation);
+    $booking = new Booking();
+    $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $booking);
     $formBuilder
       ->add('firstName',    TextType::class)
       ->add('lastName',    TextType::class)
+      ->add('email',    EmailType::class)
       ->add('save',      SubmitType::class)
           ;
     $form = $formBuilder->getForm();

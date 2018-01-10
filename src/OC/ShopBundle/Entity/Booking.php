@@ -5,12 +5,12 @@ namespace OC\ShopBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Ticket
+ * Booking
  *
- * @ORM\Table(name="ticket")
- * @ORM\Entity(repositoryClass="OC\ShopBundle\Repository\TicketRepository")
+ * @ORM\Table(name="booking")
+ * @ORM\Entity(repositoryClass="OC\ShopBundle\Repository\BookingRepository")
  */
-class Ticket
+class Booking
 {
     /**
      * @var int
@@ -18,15 +18,10 @@ class Ticket
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\OneToMany(targetEntity="OC\ShopBundle\Entity\Ticket", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="code", type="string", length=255)
-     */
-    private $code;
 
     /**
      * @var string
@@ -43,25 +38,27 @@ class Ticket
     private $lastName;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="dateOfBirth", type="datetime")
+     * @ORM\Column(name="email", type="string", length=50)
      */
-    private $dateOfBirth;
+    private $email;
 
     /**
-     * @var bool
+     * @var \DateTime
      *
-     * @ORM\Column(name="reduced", type="boolean")
+     * @ORM\Column(name="date", type="datetime")
+     * @ORM\OneToMany(targetEntity="OC\ShopBundle\Entity\Date", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $reduced;
+    private $date;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string", length=255)
+     * @ORM\Column(name="type", type="string", length=255)
      */
-    private $status;
+    private $type;
 
 
     /**
@@ -75,35 +72,11 @@ class Ticket
     }
 
     /**
-     * Set code
-     *
-     * @param string $code
-     *
-     * @return Ticket
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
-
-        return $this;
-    }
-
-    /**
-     * Get code
-     *
-     * @return string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
-
-    /**
      * Set firstName
      *
      * @param string $firstName
      *
-     * @return Ticket
+     * @return Booking
      */
     public function setFirstName($firstName)
     {
@@ -127,7 +100,7 @@ class Ticket
      *
      * @param string $lastName
      *
-     * @return Ticket
+     * @return Booking
      */
     public function setLastName($lastName)
     {
@@ -147,75 +120,75 @@ class Ticket
     }
 
     /**
-     * Set dateOfBirth
+     * Set email
      *
-     * @param \DateTime $dateOfBirth
+     * @param string $email
      *
-     * @return Ticket
+     * @return Booking
      */
-    public function setDateOfBirth($dateOfBirth)
+    public function setEmail($email)
     {
-        $this->dateOfBirth = $dateOfBirth;
+        $this->email = $email;
 
         return $this;
     }
 
     /**
-     * Get dateOfBirth
-     *
-     * @return \DateTime
-     */
-    public function getDateOfBirth()
-    {
-        return $this->dateOfBirth;
-    }
-
-    /**
-     * Set reduced
-     *
-     * @param boolean $reduced
-     *
-     * @return Ticket
-     */
-    public function setReduced($reduced)
-    {
-        $this->reduced = $reduced;
-
-        return $this;
-    }
-
-    /**
-     * Get reduced
-     *
-     * @return bool
-     */
-    public function getReduced()
-    {
-        return $this->reduced;
-    }
-
-    /**
-     * Set status
-     *
-     * @param string $status
-     *
-     * @return Ticket
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
+     * Get email
      *
      * @return string
      */
-    public function getStatus()
+    public function getEmail()
     {
-        return $this->status;
+        return $this->email;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Booking
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Booking
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
     }
 }
 
