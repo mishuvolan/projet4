@@ -1,15 +1,19 @@
-## Homepage Form 1 -> choose your TICKET
+## Page 1 Form 1 -> form for Reservation entity
+oc_shop_visitorform:
+    path:     /tickets/info
+    defaults: { _controller: OCShopBundle:Booking:visitorForm }
+    methods: [POST,GET]
+
+
+
+## Page 2 -> choose your TICKET
 oc_shop_homepage:
     path:     /tickets
     defaults: { _controller: OCShopBundle:Booking:add }
     methods: [POST,GET]
 
 
-## Form 2 -> enter your INFORMATIONS
-oc_shop_visitorform:
-    path:     /tickets/info
-    defaults: { _controller: OCShopBundle:Booking:visitorForm }
-    methods: [POST,GET]
+
 
 
 ## Form 3 -> PAYMENT

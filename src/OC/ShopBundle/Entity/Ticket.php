@@ -26,35 +26,21 @@ class Ticket
      *
      * @ORM\Column(name="code", type="string", length=255)
      */
-    private $code; 
+    private $code;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="ticketType", type="string", length=255)
-     */
-    private $ticketType;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="firstName", type="string", length=255)
+     * @ORM\Column(name="firstName", type="string", length=50)
      */
     private $firstName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lastName", type="string", length=255)
+     * @ORM\Column(name="lastName", type="string", length=50)
      */
     private $lastName;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="country", type="string", length=255)
-     */
-    private $country;
 
     /**
      * @var \DateTime
@@ -73,16 +59,9 @@ class Ticket
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string", length=255)
+     * @ORM\Column(name="status", type="string", length=50)
      */
     private $status;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="charge", type="string", length=255)
-     */
-    private $charge;
 
 
     /**
@@ -117,30 +96,6 @@ class Ticket
     public function getCode()
     {
         return $this->code;
-    }
-
-    /**
-     * Set ticketType
-     *
-     * @param string $ticketType
-     *
-     * @return Ticket
-     */
-    public function setTicketType($ticketType)
-    {
-        $this->ticketType = $ticketType;
-
-        return $this;
-    }
-
-    /**
-     * Get ticketType
-     *
-     * @return string
-     */
-    public function getTicketType()
-    {
-        return $this->ticketType;
     }
 
     /**
@@ -189,30 +144,6 @@ class Ticket
     public function getLastName()
     {
         return $this->lastName;
-    }
-
-    /**
-     * Set country
-     *
-     * @param string $country
-     *
-     * @return Ticket
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * Get country
-     *
-     * @return string
-     */
-    public function getCountry()
-    {
-        return $this->country;
     }
 
     /**
@@ -285,30 +216,6 @@ class Ticket
     public function getStatus()
     {
         return $this->status;
-    }
-
-    /**
-     * Set charge
-     *
-     * @param string $charge
-     *
-     * @return Ticket
-     */
-    public function setCharge($charge)
-    {
-        $this->charge = $charge;
-
-        return $this;
-    }
-
-    /**
-     * Get charge
-     *
-     * @return string
-     */
-    public function getCharge()
-    {
-        return $this->charge;
     }
 }
 
