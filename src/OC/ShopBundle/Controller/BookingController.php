@@ -20,6 +20,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 
+
 class BookingController extends Controller
 {
     
@@ -32,6 +33,9 @@ class BookingController extends Controller
       ->add('firstName',    TextType::class)
       ->add('lastName',    TextType::class)
       ->add('email',    EmailType::class)
+      ->add('type', CheckboxType::class, array(
+                'label'         => 'Day ',
+                'required'      => false,))
       ->add('save',      SubmitType::class)
           ;
     $form = $formBuilder->getForm();
