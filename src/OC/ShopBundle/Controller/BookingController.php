@@ -30,6 +30,8 @@ class BookingController extends Controller
     $em = $this->getDoctrine()->getManager();
     $product = $em->getRepository(Date::class)->getTicketsFor(\DateTime::createFromFormat('Y-m-d', '2018-01-21'));
     dump($product);
+    
+    
     $booking = new Booking();
     $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $booking);
     $formBuilder
