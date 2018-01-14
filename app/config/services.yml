@@ -4,6 +4,7 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    web_service:
+        class: ShopBundle\WebService\Webservice
+        arguments: [entityManager, 1000, 1000]
+

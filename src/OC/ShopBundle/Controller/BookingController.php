@@ -9,6 +9,7 @@ namespace OC\ShopBundle\Controller;
 use OC\ShopBundle\Entity\Ticket;
 use OC\ShopBundle\Entity\Booking;
 use OC\ShopBundle\Entity\Date;
+use OC\ShopBundle\Webservice\Webservice;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -27,6 +28,8 @@ class BookingController extends Controller
     
 	public function visitorFormAction(Request $request)
 	{
+    $ws = $this->get(Webservice::class);
+    $check = $ws->checkCapacity();
     $em = $this->getDoctrine()->getManager();
     $product = $em->getRepository(Date::class)->getTicketsFor(\DateTime::createFromFormat('Y-m-d', '2018-01-21'));
     dump($product);
