@@ -8,6 +8,7 @@ namespace OC\ShopBundle\Controller;
 
 use OC\ShopBundle\Entity\Ticket;
 use OC\ShopBundle\Entity\Booking;
+use OC\ShopBundle\Entity\Date;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -26,7 +27,9 @@ class BookingController extends Controller
     
 	public function visitorFormAction(Request $request)
 	{
-
+    $em = $this->getDoctrine()->getManager();
+    $product = $em->getRepository(Date::class)->getTicketsFor(\DateTime::createFromFormat('Y-m-d', '2018-01-21'));
+    dump($product);
     $booking = new Booking();
     $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $booking);
     $formBuilder
@@ -37,6 +40,7 @@ class BookingController extends Controller
                 'label'         => 'Day ',
                 'required'      => false,))
       ->add('save',      SubmitType::class)
+
           ;
     $form = $formBuilder->getForm();
     return $this->render('OCShopBundle:Form:visitorForm.html.twig', array(
