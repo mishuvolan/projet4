@@ -6,7 +6,12 @@
         autoconfigure: true
         public: false
 
-        
-    web_service:
-         class: ShopBundle\WebService\WebService
-         arguments: [entityManager, 1000, 1000]
+    # makes classes in src/AppBundle available to be used as services
+    ShopBundle\:
+        resource: '../../src/ShopBundle/*'
+        # you can exclude directories or files
+        # but if a service is unused, it's removed anyway
+        exclude: '../../src/ShopBundle/{Entity,Repository}'
+    #web_service:
+    #     class: ShopBundle\WebService\WebService
+    #     arguments: [entityManager, 1000, 1000]
