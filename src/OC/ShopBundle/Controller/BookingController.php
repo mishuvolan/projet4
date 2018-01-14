@@ -9,7 +9,7 @@ namespace OC\ShopBundle\Controller;
 use OC\ShopBundle\Entity\Ticket;
 use OC\ShopBundle\Entity\Booking;
 use OC\ShopBundle\Entity\Date;
-use OC\ShopBundle\Webservice\Webservice;
+use OC\ShopBundle\WebService\Webservice;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
