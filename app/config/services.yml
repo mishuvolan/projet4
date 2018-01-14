@@ -10,3 +10,4 @@
     web_service:
          class: ShopBundle\WebService\WebService
          arguments: [entityManager, 1000, 1000]
+         public: true
