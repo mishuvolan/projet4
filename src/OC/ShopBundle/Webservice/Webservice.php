@@ -1,8 +1,8 @@
 <?php
-namespace OC\ShopBundle\Webservice;
+namespace OC\ShopBundle\WebService;
 use Doctrine\ORM\EntityManager;
 
-class Webservice
+class WebService
 {
     protected $em;
     private $maxCapacity;

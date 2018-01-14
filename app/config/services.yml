@@ -7,5 +7,5 @@
 +        public: false
 +        
      web_service:
-         class: ShopBundle\WebService\Webservice
+         class: ShopBundle\WebService\WebService
          arguments: [entityManager, 1000, 1000]
